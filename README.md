@@ -78,7 +78,7 @@ Compiles components and bundles assets for deployment.
 npm run deploy
 ```
 
-Deploys all components to your configured ServiceNow instance.
+Deploys all components to your configured ServiceNow instance. The deploy command **builds and deploys in one step** — you do not need to run `build` separately before deploying.
 
 ### Development Mode (Local)
 
@@ -87,6 +87,51 @@ npm run dev
 ```
 
 Starts local development server (if configured).
+
+### Updating Components on the Instance
+
+Every time you make code changes, you must redeploy to push updates to ServiceNow. The CLI will update existing records in place — it does not duplicate or break previously deployed components.
+
+**Full workflow for updating a component:**
+
+```bash
+# 1. Edit your component code (index.js, styles.scss)
+#    Make your changes...
+
+# 2. Deploy (builds automatically, then pushes to instance)
+npm run deploy
+
+# 3. Verify in ServiceNow
+#    - Open UI Builder
+#    - Open or refresh any page using the component
+#    - Hard refresh the browser (Cmd+Shift+R / Ctrl+Shift+R)
+```
+
+**What `npm run deploy` does on an update:**
+- Recompiles all JS and SCSS
+- Pushes updated asset bundles (`sys_ux_lib_asset`)
+- Updates component metadata if `now-ui.json` changed
+- Does **not** delete or recreate the component records
+
+**Adding a new component to an existing deployment:**
+
+```bash
+# 1. Create the component directory and files
+mkdir src/x-143767-my-new-component
+# Add index.js and styles.scss...
+
+# 2. Register it in src/index.js
+#    Add: import './x-143767-my-new-component';
+
+# 3. Register it in now-ui.json under "components": { ... }
+
+# 4. Deploy
+npm run deploy
+```
+
+**Verifying changes took effect:**
+- Components are cached in the browser. After deploying, always do a **hard refresh** in ServiceNow (Cmd+Shift+R on Mac, Ctrl+Shift+R on Windows)
+- If UI Builder is open, close and reopen the page
 
 ## Using Components in ServiceNow
 
