@@ -1,0 +1,32 @@
+{
+  "scopeName": "x_143767_learning",
+  "components": {
+    "x-143767-hello-world": {
+      "innerComponents": [],
+      "uiBuilder": {
+        "associatedTypes": ["global.core"],
+        "label": "Hello World",
+        "icon": "document-outline",
+        "description": "A simple hello world component"
+      }
+    },
+    "x-143767-hello-wazzup": {
+      "innerComponents": [],
+      "uiBuilder": {
+        "associatedTypes": ["global.core"],
+        "label": "Hello Wazzup",
+        "icon": "star-outline",
+        "description": "An interactive counter component with reset functionality"
+      }
+    },
+    "x-143767-fluent-poc": {
+      "innerComponents": [],
+      "uiBuilder": {
+        "associatedTypes": ["global.core"],
+        "label": "Fluent Task Manager POC",
+        "icon": "list-outline",
+        "description": "A simple task list demonstrating modern ServiceNow UI patterns with Fluent design"
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "servicenow-cli-learning",
+  "version": "1.0.0",
+  "description": "Learning project for ServiceNow CLI and Now Experience Components",
+  "main": "index.js",
+  "module": "./src/index.js",
+  "scripts": {
+    "dev": "snc ui-component develop",
+    "build": "snc ui-component build",
+    "deploy": "snc ui-component deploy"
+  },
+  "keywords": [
+    "servicenow",
+    "now-experience",
+    "ui-component"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@servicenow/cli": "^29.0.2"
+  },
+  "dependencies": {
+    "@servicenow/sdk": "^4.2.0",
+    "@servicenow/ui-core": "^24.1.1",
+    "@servicenow/ui-renderer-snabbdom": "^24.1.1"
+  }
+}

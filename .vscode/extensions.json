@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "servicenow.now-vscode",
+    "servicenow.fluent-language-extension",
+    "dbaeumer.vscode-eslint"
+  ]
+}
